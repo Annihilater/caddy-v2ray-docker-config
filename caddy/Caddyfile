@@ -1,0 +1,14 @@
+http://mydomain.com {
+  redir https://mydomain.com {url}
+}
+
+https://mydomain.com {
+  root /var/www/html
+  gzip
+  index index.html
+  tls a@a.com
+  proxy /v2rays/ v2ray:8080 {
+    websocket
+    header_upstream -Origin
+  }
+}
